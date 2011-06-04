@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+    
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/jdbc.properties" />
+
+    
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}" />
+    
+    <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
+
+
+    <bean id="SessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"></ref>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>org.addmoo.model.bo.Ad</value>
+                <value>org.addmoo.model.bo.login</value>
+                <value>org.addmoo.model.bo.User</value>
+                <value>org.addmoo.model.bo.Customer</value>
+                <value>org.addmoo.model.bo.Role</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <ref local="DBHibernateProperties"></ref>
+        </property>
+    </bean>
+
+    <bean id="DBHibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.connection.pool_size">2</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager" >
+        <property name="sessionFactory">
+            <ref bean="SessionFactory"></ref>
+        </property>
+    </bean>
+
+     <!-- //////////////////////////////////////////////////////////////// -->
+
+    <bean id="loginDao" class="org.addmoo.model.dao.hibernate.LoginDaoImpl">
+        <property name="sessionFactory" >
+            <ref bean="SessionFactory"></ref>
+        </property>
+    </bean>
+
+    <bean id="userDao" class="org.addmoo.model.dao.hibernate.UserDaoImpl">
+        <property name="sessionFactory" >
+            <ref bean="SessionFactory"></ref>
+        </property>
+    </bean>
+
+    <bean id="customerDao" class="org.addmoo.model.dao.hibernate.CustomerDaoImpl">
+        <property name="sessionFactory" >
+            <ref bean="SessionFactory"></ref>
+        </property>
+    </bean>
+
+    <bean id="roleDao" class="org.addmoo.model.dao.hibernate.RoleDaoImpl">
+        <property name="sessionFactory" >
+            <ref bean="SessionFactory"></ref>
+        </property>
+    </bean>
+
+    <bean id="adDao" class="org.addmoo.model.dao.hibernate.AdDaoImpl">
+        <property name="sessionFactory" >
+            <ref bean="SessionFactory"></ref>
+        </property>
+    </bean>
+
+ <!-- //////////////////////////////////////////////////////////////// -->
+    <bean id="loginService" class="org.addmoo.model.service.impl.LoginServiceImpl">
+        <property name="loginDao">
+            <ref local="loginDao"></ref>
+        </property>
+    </bean>
+
+    <bean id="adService" class="org.addmoo.model.service.impl.AdServiceImpl">
+        <property name="adDao">
+            <ref local="adDao"></ref>
+        </property>
+    </bean>
+
+    <bean id="customerService" class="org.addmoo.model.service.impl.CustomerServiceImpl">
+        <property name="customerDao">
+            <ref local="customerDao"></ref>
+        </property>
+    </bean>
+
+    <bean id="roleService" class="org.addmoo.model.service.impl.RoleServiceImpl">
+        <property name="roleDao">
+            <ref local="roleDao"></ref>
+        </property>
+    </bean>
+
+    <bean id="userService" class="org.addmoo.model.service.impl.UserServiceImpl">
+        <property name="userDao">
+            <ref local="userDao"></ref>
+        </property>
+    </bean>
+
+    <!-- //////////////////////////////////////////////////////////////// -->
+
+</beans>
