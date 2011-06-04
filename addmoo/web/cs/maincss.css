@@ -1,0 +1,250 @@
+@charset "utf-8";
+body{ 
+}
+#main {
+    height: 1225px;
+    width: 1000px;
+    margin-top: 0px;
+    margin-right: auto;
+    padding: 0px;
+}
+#main #header {
+    width: 1000px;
+    height:150px;
+    margin-top: 0px;
+    margin-right: 10px;
+    position: relative;
+    padding-top: 4px;
+    padding-bottom: 6px;
+}
+#logo {
+    background-image: url(../image/logo.png);
+    background-repeat: no-repeat;
+    float:left;
+    height: 80px;
+    width: 200px;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+
+}#main #header #mainnav {
+    float: left;
+    height: 60px;
+    width: 1000px;
+    background-color: #E8F8FF;
+}
+#main #warp_main {
+    float: left;
+    height: 1000px;
+    width: 1000px;
+    margin: 0 auto;
+
+}
+#main #footer {
+    background-color: #006;
+    height: 75px;
+    width: 1000px;
+    float:left;
+}
+#main #header #head_nev {
+    float: right;
+    height: 50px;
+    width:auto;
+    margin-right: 10px;
+}
+.head_nev_list li{
+    list-style-type:none;
+    list-style-image:none;
+    list-style-position:outside;
+    width:auto;
+    float:left;
+    margin-right:10px;
+    display:inline;
+}
+.head_nev_list a{
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background-attachment:scroll;
+    background-color:transparent;
+    background-position:0 50%;
+    background-repeat:no-repeat;
+    font-family: "MS Serif", "New York", serif;
+    font-size: medium;
+    font-weight: 100;
+    color: #C3C;
+}
+#main #header #acc_nav {
+    float: left;
+    height: 35px;
+    width: 250px;
+    margin-top: 10px;
+    margin-left:380px;
+
+}
+
+a {
+    color: #333;
+}
+#nav {
+    margin: 0;
+    padding: 7px 6px 0;
+    line-height: 100%;
+    border-radius: 2em;
+
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+
+    background: #3399CC; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B4DCED', endColorstr='#67B8DE'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#B4DCED), to(#67B8DE)); /* for webkit browsers */
+    background: -moz-linear-gradient(top, #B4DCED, #67B8DE); /* for firefox 3.6+ */
+
+    border: solid 1px #67B8DE;
+}
+#nav li {
+    margin: 0 5px;
+    padding: 0 0 8px;
+    float: left;
+    position: relative;
+    list-style: none;
+}
+/* main level link */
+#nav a {
+    font-weight: bold;
+    color: #E8F8FF;
+    text-decoration: none;
+    display: block;
+    padding: 8px 20px;
+    margin: 0;
+    -webkit-border-radius: 1.6em;
+    -moz-border-radius: 1.6em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+/* main level link hover */
+#nav .current a, #nav li:hover > a {
+    background: #E8F8FF; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B4DCED', endColorstr='#67B8DE'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#B4DCED), to(#67B8DE)); /* for webkit browsers */
+    background: -moz-linear-gradient(top, #B4DCED, #67B8DE); /* for firefox 3.6+ */
+
+    color: #444;
+    border-top: solid 1px #f8f8f8;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+}
+/* sub levels link hover */
+#nav ul li:hover a, #nav li:hover li a {
+    background: none;
+    border: none;
+    color: #666;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+#nav ul a:hover {
+    background: #3399CC !important; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#04acec', endColorstr='#0186ba'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba)) !important;
+    /* for webkit browsers */
+    background: -moz-linear-gradient(top, #04acec, #0186ba) !important; /* for firefox 3.6+ */
+
+    color: #fff !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+}
+/* level 2 list */
+#nav ul {
+    background: #91C9E8; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3399CC', endColorstr='#E8F8FF'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#3399CC), to(#E8F8FF)); /* for webkit browsers */
+    background: -moz-linear-gradient(top, #3399CC, #E8F8FF); /* for firefox 3.6+ */
+
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 185px;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    border: solid 1px #B4DCED;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+}
+/* dropdown */
+#nav li:hover > ul {
+    display: block;
+}
+#nav ul li {
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+#nav ul a {
+    font-weight: normal;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, .9);
+}
+/* level 3+ list */
+#nav ul ul {
+    left: 181px;
+    top: -3px;
+}
+/* rounded corners for first and last child */
+#nav ul li:first-child > a {
+    -webkit-border-top-left-radius: 9px;
+    -moz-border-radius-topleft: 9px;
+    -webkit-border-top-right-radius: 9px;
+    -moz-border-radius-topright: 9px;
+}
+#nav ul li:last-child > a {
+    -webkit-border-bottom-left-radius: 9px;
+    -moz-border-radius-bottomleft: 9px;
+    -webkit-border-bottom-right-radius: 9px;
+    -moz-border-radius-bottomright: 9px;
+}
+/* clearfix */
+#nav:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+#nav {
+    display: inline-block;
+}
+
+html[xmlns] #nav {
+    display: block;
+}
+
+* html #nav {
+    height: 1%;
+}
+
+#main #warp_main #warp_left {
+    background-color: #3399CC;
+    float: left;
+    height: 1000px;
+    width: 620px;
+}
+#main #warp_main #warp_ri {
+    background-color: #0F0;
+    float: left;
+    height: 1000px;
+    width: 380px;
+}
+
+
+
